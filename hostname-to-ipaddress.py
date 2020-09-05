@@ -1,3 +1,8 @@
+# Python script to read a list of hostnames in a text file and output their corresponding IP addresses
+# Author: JustCooLpOOLe
+# Version: 1.0
+# License: (o^o)
+
 # import socket module to use gethostbyname function
 import socket
 
