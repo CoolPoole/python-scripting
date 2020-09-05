@@ -12,8 +12,7 @@ import socket
 with open("hostnames.txt", "r") as ins:
     for line in ins:
         ip_address = socket.gethostbyname(line.strip())
-        print(line, ip_address)
-        
-        
+        print("For", line, "the IP address is", ip_address)
+              
 # can replace lines 9 and 10 with this statement: print(socket.gethostbyname(line.strip()))
 # i just like passing into a variable more
