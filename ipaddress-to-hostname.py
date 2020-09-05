@@ -1,3 +1,8 @@
+# Python script to read a list of IP addresses in a text file and output their corresponding hostname if possible
+# Author: JustCooLpOOLe
+# Version: 1.0
+# License: (o^o)
+
 # import socket module to use getfqdn function
 import socket
 
