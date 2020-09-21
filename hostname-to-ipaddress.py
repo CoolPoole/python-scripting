@@ -36,9 +36,8 @@ def file_input():
         print("\nYour file does not exist. You may need to specify the full path.")
 
 def quitter():
-    print("\n--------------------------")
-    print("Smell ya later! Closing...")
-    print("--------------------------\n")
+    ascii_closing_banner = pyfiglet.figlet_format("Smell Ya Later!\n")
+    print(ascii_closing_banner)
     time.sleep(3)
 
 # global variable declaration
