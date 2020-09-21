@@ -59,7 +59,7 @@ while (again != 'N'):
         quitter()
         break
 
-    again = input("\nWould you like to look up more? Enter Y or N: ")
+    again = input("\nWould you like to look up more? (Y/N) ")
 
 else:
     quitter()
