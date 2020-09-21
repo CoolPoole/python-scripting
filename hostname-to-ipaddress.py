@@ -33,7 +33,7 @@ def file_input():
                 ip_address = socket.gethostbyname(line.strip()) # strip() will strip any trailing or leading blank spaces
                 print("The IP for", line, "is", ip_address, "\n")
     except IOError:
-        print("\nYour file does not exist.")
+        print("\nYour file does not exist. You may need to specify the full path.")
 
 def quitter():
     print("\n---------------")
