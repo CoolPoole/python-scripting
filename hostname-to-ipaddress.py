@@ -1,4 +1,4 @@
-# Python script to read a list of hostnames in a text file and output their corresponding IP addresses
+# Python script to take hostnames as input and produce their associated IP address(es)
 # Author: JustCooLpOOLe
 # Version: 1.0
 # License: (o^o)
@@ -34,13 +34,27 @@ def quitter():
     print("Smell ya later!")
     print("---------------\n")
 
-# user input
-choice = int(input("Enter \n (1) for single domain\n (2) for a file\n (3) to quit \r\n\n Choice: "))
+# global variable declaration
+choice = 0
+again = 'Y'
 
-if (choice == 1):
-    single_input()
-elif (choice == 2):
-    file_input()
+# title header
+print("\nLet's convert hostnames to ip addresses!")
+
+while (again != 'N'):
+    
+    choice = int(input("\nEnter \n (1) for single domain\n (2) for a file\n (3) to quit \r\n\n Choice: "))
+
+    if (choice == 1):
+        single_input()
+    elif (choice == 2):
+        file_input()
+    else:
+        quitter()
+        break
+
+    again = input("\nWould you like to look up more? Enter Y or N: ")
+
 else:
     quitter()
 
