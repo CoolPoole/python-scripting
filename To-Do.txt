@@ -1,0 +1,4 @@
+# To Do List for hostname-to-ipaddress.py
+
+1. Add functionality where you can add a single hostname or use a list of hostnames # 9/21/2020
+2. Add functionality where you can export results to a file if you choose   # 9/21/2020
