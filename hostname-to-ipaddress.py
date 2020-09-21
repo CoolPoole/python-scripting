@@ -35,7 +35,6 @@ def quitter():
     print("---------------\n")
 
 # global variable declaration
-choice = 0
 again = 'Y'
 
 # title header
