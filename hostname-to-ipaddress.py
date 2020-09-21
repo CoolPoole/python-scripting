@@ -6,6 +6,7 @@
 # module import section
 import socket
 import time
+import pyfiglet
 
 # methods section
 def single_input():
@@ -18,16 +19,21 @@ def single_input():
 
 def file_input():
     filename = input("\nPlease enter your filename: ")
-    print("\nImporting file(s)...\n")
-    time.sleep(3)
 
-    print(" ")
+    try:
+        
+        # open() function to read filename variable
+        with open(filename, "r") as ins:
+            print("\nImporting file(s)...\n")
+            time.sleep(3)
 
-    # open() function to read filename variable
-    with open(filename, "r") as ins:
-        for line in ins:
-            ip_address = socket.gethostbyname(line.strip()) # strip() will strip any trailing or leading blank spaces
-            print("The IP for", line, "is", ip_address, "\n")
+            print(" ")
+
+            for line in ins:
+                ip_address = socket.gethostbyname(line.strip()) # strip() will strip any trailing or leading blank spaces
+                print("The IP for", line, "is", ip_address, "\n")
+    except IOError:
+        print("\nYour file does not exist.")
 
 def quitter():
     print("\n---------------")
@@ -38,7 +44,8 @@ def quitter():
 again = 'Y'
 
 # title header
-print("\nLet's convert hostnames to ip addresses!")
+ascii_banner = pyfiglet.figlet_format("\nLet's Convert Hostnames to IP Addresses!")
+print(ascii_banner)
 
 while (again != 'N'):
     
