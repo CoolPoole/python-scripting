@@ -36,9 +36,10 @@ def file_input():
         print("\nYour file does not exist. You may need to specify the full path.")
 
 def quitter():
-    print("\n---------------")
-    print("Smell ya later!")
-    print("---------------\n")
+    print("\n--------------------------")
+    print("Smell ya later! Closing...")
+    print("--------------------------\n")
+    time.sleep(3)
 
 # global variable declaration
 again = 'Y'
