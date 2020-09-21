@@ -13,8 +13,6 @@ def single_input():
     print("\nLooking up", single_domain, "...\n")
     time.sleep(1)
 
-    print(" ")
-
     ip_address = socket.gethostbyname(single_domain)
     print("The IP for", single_domain, "is", ip_address, "\n")
 
