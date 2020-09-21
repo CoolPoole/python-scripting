@@ -18,7 +18,7 @@ def single_input():
     print("The IP for", single_domain, "is", ip_address, "\n")
 
 def file_input():
-    filename = input("\nPlease enter your filename: ")
+    filename = input("\nWhat is your filename to be read: ")
 
     try:
         
@@ -29,11 +29,15 @@ def file_input():
 
             print(" ")
 
-            for line in ins:
-                ip_address = socket.gethostbyname(line.strip()) # strip() will strip any trailing or leading blank spaces
-                print("The IP for", line, "is", ip_address, "\n")
+            with open("hostnames-to-ipaddress-output.txt", "w") as outs:
+                for line in ins:
+                    ip_address = socket.gethostbyname(line.strip()) # strip() will strip any trailing or leading blank spaces
+                    print("The IP for", line, "is", ip_address, "\n")
+
+        print("\nNote: Your output was written to hostnames-to-ipaddress-output.txt\n")
     except IOError:
         print("\nYour file does not exist. You may need to specify the full path.")
+
 
 def quitter():
     ascii_closing_banner = pyfiglet.figlet_format("Smell Ya Later!\n")
