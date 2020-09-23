@@ -14,8 +14,11 @@ def single_input():
     print("\nLooking up", single_domain, "...\n")
     time.sleep(1)
 
-    ip_address = socket.gethostbyname(single_domain)
-    print("The IP for", single_domain, "is", ip_address, "\n")
+    try:
+        ip_address = socket.gethostbyname_ex(single_domain)
+        print("The IP for", single_domain, "is", ip_address, "\n")
+    except socket.gaierror:
+        print("Your domain does not exist.")
 
 def file_input():
     filename = input("\nWhat is your filename to be read: ")
@@ -31,8 +34,12 @@ def file_input():
 
             with open("hostnames-to-ipaddress-output.txt", "w") as outs:
                 for line in ins:
-                    ip_address = socket.gethostbyname(line.strip()) # strip() will strip any trailing or leading blank spaces
-                    print("The IP for", line, "is", ip_address, "\n")
+
+                    try:
+                        ip_address = socket.gethostbyname_ex(line.strip()) # strip() will strip any trailing or leading blank spaces
+                        print("The IP for", line, "is", ip_address, "\n")
+                    except socket.gaierror:
+                        print("Domain doesn't exist.")
 
         print("\nNote: Your output was written to hostnames-to-ipaddress-output.txt\n")
     except IOError:
