@@ -8,6 +8,9 @@ import socket
 import time
 import pyfiglet
 
+# global variable declaration
+again = 'Y'
+
 # methods section
 def single_input():
     single_domain = input("\nPlease enter your domain: ")
@@ -32,14 +35,18 @@ def file_input():
 
             print(" ")
 
-            with open("hostnames-to-ipaddress-output.txt", "w") as outs:
-                for line in ins:
+            outF = open("hostnames-to-ipaddress-output.txt", "w")
+            for line in ins:
+                
+                try:
+                    ip_address = socket.gethostbyname_ex(line.strip()) # strip() will strip any trailing or leading blank spaces
+                    print("The IP for", line, "is", ip_address, "\n")
+                    outF.write(str(ip_address))
+                    outF.write("\n")
+                except socket.gaierror:
+                    print("Domain does not exist.")
 
-                    try:
-                        ip_address = socket.gethostbyname_ex(line.strip()) # strip() will strip any trailing or leading blank spaces
-                        print("The IP for", line, "is", ip_address, "\n")
-                    except socket.gaierror:
-                        print("Domain doesn't exist.")
+            outF.close()
 
         print("\nNote: Your output was written to hostnames-to-ipaddress-output.txt\n")
     except IOError:
@@ -50,9 +57,6 @@ def quitter():
     ascii_closing_banner = pyfiglet.figlet_format("Smell Ya Later!\n")
     print(ascii_closing_banner)
     time.sleep(3)
-
-# global variable declaration
-again = 'Y'
 
 # title header
 ascii_banner = pyfiglet.figlet_format("\nLet's Convert Hostnames to IP Addresses!")
