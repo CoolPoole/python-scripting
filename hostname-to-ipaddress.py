@@ -60,7 +60,11 @@ print(ascii_banner)
 
 while (again != 'N'):
     
-    choice = int(input("\nEnter \n (1) for single domain\n (2) for a file\n (3) to quit \r\n\n Choice: "))
+    try:
+        choice = int(input("\nEnter \n (1) for single domain\n (2) for a file\n (3) to quit \r\n\n Choice: "))
+    except ValueError:
+        print("Invalid Choice!")
+        break
 
     if (choice == 1):
         single_input()
