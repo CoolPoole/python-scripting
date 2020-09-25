@@ -10,6 +10,8 @@ import pyfiglet
 
 # global variable declaration
 again = 'Y'
+date = time.strftime("%Y%m%d-%H%M%S")
+file_out = ("hostnames-to-ipaddress-output-" + date + ".txt")
 
 # methods section
 def single_input():
@@ -35,7 +37,7 @@ def file_input():
 
             print(" ")
 
-            outF = open("hostnames-to-ipaddress-output.txt", "w")
+            outF = open(file_out, "w")
             for line in ins:
                 
                 try:
@@ -48,7 +50,7 @@ def file_input():
 
             outF.close()
 
-        print("\nNote: Your output was written to hostnames-to-ipaddress-output.txt\n")
+        print("\nNote: Your output was written to", file_out, "\n")
     except IOError:
         print("\nYour file does not exist. You may need to specify the full path.")
 
